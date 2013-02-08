@@ -1,14 +1,12 @@
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
 public class NavigateSchoolware {
 	WebDriver	m_driver;
-	JavascriptExecutor js;
 	int			m_nSelectedSideBar;
 	String		m_sSelectedCategory;
 	static final int CLICK_WAIT = 1000;
@@ -20,7 +18,6 @@ public class NavigateSchoolware {
 	public NavigateSchoolware(WebDriver driver)
 	{
 		m_driver = driver;
-		js = (JavascriptExecutor)m_driver;
 		m_nSelectedSideBar	= 0;
 		m_sSelectedCategory	= null;
 	}
@@ -182,6 +179,11 @@ public class NavigateSchoolware {
 		return this;
 	}
 	
+	public WebElement[] getWebElements(String cssSelector)
+	{
+		return null;
+	}
+	
 	public NavigateSchoolware waitForLoading()
 	{
 		WebElement	elm = m_driver.findElement(By.cssSelector("#container #sidebar #loading-wrapper"));
@@ -221,17 +223,6 @@ public class NavigateSchoolware {
 				System.out.println("[waitForHideAToast] occured Error!");
 			}
 		}
-		return this;
-	}
-	
-public NavigateSchoolware callfunction(){
-		
-		js.executeScript("passMsg('msg');");
-		js.executeScript("finishedDownload('msg')");
-		js.executeScript("finishedDownload('[]')");
-		js.executeScript("sendTestResults('[]');");
-		js.executeScript("sendTestResults({\"totalmark\":41,\"teststarttime\":\"2013-02-06 18:05:33\",\"appid\":28,\"quesattended\":9,\"testid\":1360173966869,\"overallscoreobtained\":8,\"totaltime\":32,\"totalquestions\":9,\"analytics\":[{\"totalmark\":3,\"time\":4,\"questiontype\":\"1\",\"finalanswer\":\"1\",\"correctanswer\":\"0\",\"clicks\":2,\"mark\":0,\"questionid\":1000280000},{\"totalmark\":3,\"time\":4,\"questiontype\":\"1\",\"finalanswer\":\"1\",\"correctanswer\":\"0\",\"clicks\":4,\"mark\":0,\"questionid\":1000280001},{\"totalmark\":3,\"time\":3,\"questiontype\":\"1\",\"finalanswer\":\"1\",\"correctanswer\":\"1\",\"clicks\":3,\"mark\":3,\"questionid\":1000280002},{\"totalmark\":3,\"time\":2,\"questiontype\":\"1\",\"finalanswer\":\"1\",\"correctanswer\":\"2\",\"clicks\":2,\"mark\":0,\"questionid\":1000280003},{\"totalmark\":3,\"time\":2,\"questiontype\":\"1\",\"finalanswer\":\"1\",\"correctanswer\":\"2\",\"clicks\":2,\"mark\":0,\"questionid\":1000280004},{\"totalmark\":5,\"time\":3,\"questiontype\":\"2\",\"finalanswer\":\"1\",\"correctanswer\":\"2\",\"clicks\":2,\"mark\":0,\"questionid\":1000280005},{\"totalmark\":5,\"time\":3,\"questiontype\":\"2\",\"finalanswer\":\"1\",\"correctanswer\":\"1\",\"clicks\":2,\"mark\":5,\"questionid\":1000280006},{\"totalmark\":8,\"time\":4,\"questiontype\":\"3\",\"finalanswer\":\"sg\",\"correctanswer\":\"Railway and steam technologies became one of Britain s greatest exports\",\"clicks\":2,\"mark\":0,\"questionid\":1000280007},{\"totalmark\":8,\"time\":2,\"questiontype\":\"3\",\"finalanswer\":\"sdgfs\",\"correctanswer\":\"Many people were able to add fish to their diets because ports could transport fresh seafood by rail\",\"clicks\":2,\"mark\":0,\"questionid\":1000280008}]});");
-		
 		return this;
 	}
 	
